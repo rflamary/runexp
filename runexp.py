@@ -73,11 +73,16 @@ def get_task_dict(config,task):
         res[key]=config[task][key] 
     return res
     
-def to_list(string):
-    ls=string.split(":")
-    res=[]
-    if len(ls)<3:
-        res=[str(val) for val in range(int(ls[0]),int(ls[1])+1)]
+def to_list(strng):
+    if strng.find(":")>=0:
+        ls=strng.split(":")
+        res=[]
+        if len(ls)<3:
+            res=[str(val) for val in range(int(ls[0]),int(ls[1])+1)]
+        if len(ls)==3:
+            res=[str(val) for val in range(int(ls[0]),int(ls[2])+1,int(ls[1]) )]
+    elif strng.find(";")>=0:
+        res=strng.split(";")
     return res 
 
 def get_dic_list(dic,varlist,lstvar):
