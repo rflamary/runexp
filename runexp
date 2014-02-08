@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+module load Python/atlas-3.10.1/2.7.5
+
+python2.7 run_job.py $@
