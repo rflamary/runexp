@@ -145,7 +145,7 @@ def get_oar_cmd(dic):
         res+=' -O {0} -E {0}'.format(dic['OAR_output'])  
     if dic['OAR_mail']:
         res+=' --notify mail:{0}'.format(dic['OAR_mail'])  
-    res+=' -S "{0}"'.format(dic['cmd'])  
+    res+=' "{0}"'.format(dic['cmd'])  
     return res
 
 def run_command(cmd,args):
@@ -200,7 +200,9 @@ def run_task(config,args):
             else:
                 print "Error: unknown run_type"
     else:
-        for tsk in lst2:
+        for i,tsk in enumerate(lst2):
+            if args.verbose:
+                print 'Task {i}/{n}\n\t{cmd}'.format(i=i+1,n=len(lst2),cmd=tsk['cmd'])
             if tsk['run_type']=='direct':
                 run_command(tsk['cmd'],args) 
             elif tsk['run_type']=='oar':
