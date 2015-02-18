@@ -16,4 +16,31 @@ Python script for running long/parallel simulations (either by direct execution 
 
 ## Short documentation
 
-TODO
+
+### Introduction
+All jobs are defined in the config file (by default jobs.ini)
+
+Here is a very simple example 
+
+```ini
+
+[Config]
+title=coucou
+
+[task1]
+cmd=echo {title}
+
+```
+
+The [Config] section defines defaults values for all tasks. 
+One job is one section in the init file. One the previous example there is only one task name "task1".
+
+
+
+
+
+For each job one can define one or several variables and their corresponding values
+
+#### Sort example
+
+
