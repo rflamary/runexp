@@ -23,9 +23,8 @@ All jobs are defined in the config file (by default jobs.ini)
 Here is a very simple example 
 
 ```ini
-
 [Config]
-title=coucou
+title=mytitle
 
 [task1]
 cmd=echo {title}
@@ -35,12 +34,30 @@ cmd=echo {title}
 The [Config] section defines defaults values for all tasks. 
 One job is one section in the init file. One the previous example there is only one task name "task1".
 
+To list the available tasks run
 
+```bash
+$ ./runexp 
+Task list:
+	task1
+```
 
+You can execute task one by running 
 
+```bash
+$ ./runexp task1
+mytitle
+```
+which executes the echo command
 
-For each job one can define one or several variables and their corresponding values
+For each job one can define one or several variables and their corresponding values. For instance
 
-#### Sort example
+```ini
+[task2]
+cmd=echo {i}
+varlist=i
+i=1:10
+```
+defines a task that will execute 10 times echo with parameter 1 to 10
 
 
