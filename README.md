@@ -18,6 +18,35 @@ Python script for running long/parallel simulations (either by direct execution 
 
 
 ### Introduction
+
+The command line help defines several options:
+```bash
+$./runexp
+usage: runexp [-h] [-c CONFIGFILE] [-l] [-t] [-r] [-o] [-v] [-i] [-w]
+              [task] [idx [idx ...]]
+
+utility for launching parallel jobs (direct execution or oarsub)
+
+positional arguments:
+  task                  selected task
+  idx                   subtask index(s) for selected execution
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIGFILE, --configfile CONFIGFILE
+                        config file (jobs.ini in current folder)
+  -l, --list            show list of tasks
+  -t, --test            test task launching (print commands)
+  -r, --runonly         force direct run of command (without oarsub)
+  -o, --oar             force the use of oarsub
+  -v, --verbose         use verbose printing mode
+  -i, --info            print informtion on the selected task
+  -w, --wait            wait for the command to terminate (either oarsub or
+                        direct run)
+
+```
+
+
 All jobs are defined in the config file (by default jobs.ini)
 
 Here is a very simple example 
