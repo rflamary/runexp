@@ -34,6 +34,10 @@ cmd=echo {title}
 The [Config] section defines defaults values for all tasks. 
 One job is one section in the init file. One the previous example there is only one task name "task1".
 
+Note that the variable cmd has to be defined sice it correspond sto the command line to execute.
+
+You can use simple python templating  for seting a global variable (in this example title) that will be used in another variable. Of course not ciclic redundancy is permited.
+
 To list the available tasks run
 
 ```bash
@@ -58,6 +62,21 @@ cmd=echo {i}
 varlist=i
 i=1:10
 ```
-defines a task that will execute 10 times echo with parameter 1 to 10
+defines a task that will execute 10 times echo with parameter 1 to 10 :
+```bash
+$ ./runexp task2
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+See the jobs.ini in the repository for more detailed example (multiple variables, OARSUB submissions)
 
 
